@@ -143,7 +143,7 @@ function count(arr, item) {
 //嵌套循环，内循环只循环没有对比过的数据
 function duplicates(arr) {
     var repeatElem = [];
-	for(var i = 0; i < arr.length; i++){
+    for(var i = 0; i < arr.length; i++){
         for(var j = i+1; j < arr.length; j++){
             if( arr[i] === arr[j] && (repeatElem.indexOf(arr[i]) == -1)){
                 repeatElem.push(arr[i])
@@ -157,11 +157,31 @@ function duplicates(arr) {
 //改进   使用前从前往后indexOf和从后往前lastIndexOf函数
 function duplicates(arr) {
     var repeatElem = [];
-	for(var i = 0; i < arr.length; i++){
+    for(var i = 0; i < arr.length; i++){
         if( arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i]) && (repeatElem.indexOf(arr[i]) == -1)){
             repeatElem.push(arr[i])
         }
     }
     
     return repeatElem;
+}
+=====================================================================================================
+// 13.题目描述
+// 为数组 arr 中的每个元素求二次方。不要直接修改数组 arr，结果返回新的数组
+
+//自己
+function square(arr) {
+    var newArr = [];
+    for(var i = 0; i < arr.length; i++){
+        newArr.push(arr[i]*arr[i]);
+    }
+    
+    return newArr;
+}
+
+//大牛
+function square(arr) {
+    return arr.map(function(item,index,array){
+        return item*item;
+    })
 }
