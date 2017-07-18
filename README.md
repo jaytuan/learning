@@ -22,6 +22,13 @@ $ git commit -a  
 <br/>
 四.从远程拉取代码
 ----
+$ git pull origin master    (git pull [remoteName] [localBranchName])
+<br/>
+五.推代码到远程
+----
+$ git push origin master    (git push [remoteName] [localBranchName])
+<br/>
+
 <br/>
 Q：git merge和rebase的区别?<br/>
 假设现在有两个分支 A B
