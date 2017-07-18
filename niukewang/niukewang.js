@@ -185,3 +185,12 @@ function square(arr) {
         return item*item;
     })
 }
+// 14.题目描述
+// 在数组 arr 中，查找值与 item 相等的元素出现的所有位置
+function findAllOccurrences(arr, target) {
+	var indexArr = [];
+    for(var i = 0; i < arr.length; i++){
+        arr[i] === target && indexArr.push(i);    
+    }
+    return indexArr;
+}
