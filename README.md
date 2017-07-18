@@ -22,3 +22,8 @@ $ git commit -a  
 <br/>
 四.从远程拉取代码
 ----
+<br/>
+Q：git merge和rebase的区别?<br/>
+假设现在有两个分支 A B
+1. 在B分支上执行 git merge A 后 A就被合到B上了
+2. 在B分支上执行 git rebase A 后，效果与merge是一样的，但是 A就没有了，两个分支就合在一起了。
