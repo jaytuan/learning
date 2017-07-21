@@ -19,9 +19,16 @@ $ git commit -a  
 <p>弹出编辑器，需要写出提交的内容,一般来说写什么都可以，但是对于工作学习方便来说，最好写明本次提交修改了哪些功能，方便以后查找。
 <br/>
 写完提交信息以后，有的按ESC会弹出询问是否保存，点击是会直接退出编辑器，进行下一步。有的需要先后按ESC,Z,Z键保存退出编辑器。</p>
-<br/>
+
 四.从远程拉取代码
 ----
+$ git pull origin master    (git pull [remoteName] [localBranchName])
+
+五.推代码到远程
+----
+$ git push origin master    (git push [remoteName] [localBranchName])
+<br/>
+
 <br/>
 Q：git merge和rebase的区别?<br/>
 假设现在有两个分支 A B
