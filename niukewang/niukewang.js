@@ -185,12 +185,66 @@ function square(arr) {
         return item*item;
     })
 }
+=====================================================================================================
 // 14.题目描述
 // 在数组 arr 中，查找值与 item 相等的元素出现的所有位置
 function findAllOccurrences(arr, target) {
-	var indexArr = [];
+    var indexArr = [];
     for(var i = 0; i < arr.length; i++){
         arr[i] === target && indexArr.push(i);    
     }
     return indexArr;
+}
+=====================================================================================================
+// 15.题目描述
+// 给定的 js 代码中存在全局变量，请修复
+// function globals() {
+//     myObject = {
+//       name : 'Jory'
+//     };
+
+//     return myObject;
+// }
+function globals() {
+    //加上var 声明即局部变量
+    var myObject = {
+      name : 'Jory'
+    };
+
+    return myObject;
+}
+=====================================================================================================
+// 16.题目描述
+// 请修复给定的 js 代码中，函数定义存在的问题
+// 示例1
+// 输入  true
+// 输出  a
+// function functions(flag) {
+//     if (flag) {
+//       function getValue() { return 'a'; }
+//     } else {
+//       function getValue() { return 'b'; }
+//     }
+
+//     return getValue();
+// }
+
+function functions(flag) {
+    if (flag) {
+     var getValue = function() { return 'a'; }
+    } else {
+     var getValue = function() { return 'b'; }
+    }
+
+    return getValue();
+}
+=====================================================================================================
+// 17.题目描述
+// 修改 js 代码中 parseInt 的调用方式，使之通过全部测试用例
+// function parse2Int(num) {
+//     return parseInt(num);
+// }
+//按十进制转换，非数字忽略
+function parse2Int(num) {
+    return parseInt(num,10);
 }
