@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+		<style type="text/css">
+			@charset "utf-8";
+			html {
+			    font-size : 20px;
+			}
+			@media only screen and (min-width: 401px){
+			    html {
+			        font-size: 25px !important;
+			    }
+			}
+			@media only screen and (min-width: 428px){
+			    html {
+			        font-size: 26.75px !important;
+			    }
+			}
+			@media only screen and (min-width: 481px){
+			    html {
+			        font-size: 30px !important; 
+			    }
+			}
+			@media only screen and (min-width: 569px){
+			    html {
+			        font-size: 35px !important; 
+			    }
+			}
+			@media only screen and (min-width: 641px){
+			    html {
+			        font-size: 40px !important; 
+			    }
+			}
+			*{margin: 0;padding: 0;}
+			body{
+				width: 100%;
+				font-size: 14px;
+				margin: 0;
+				padding: 0;
+				background: #edf0f5;
+			}
+
+			.page-header{
+				height: 3rem;
+				background: #fff;
+				font-size: 1.4rem;
+				line-height: 2.8rem;
+				text-align: center;
+				color: #28c0b0;
+			}
+			.page-header .page-back{
+				background: url(back_arrow.png) no-repeat;
+				background-size: 1.7rem;
+				height: 2rem;
+				width: 2rem;
+				position: absolute;
+				top: 0.8rem;
+				left: 1rem;
+			}
+			.page-footer{
+				position: fixed;
+				width: 100%;
+				bottom: 0;
+				left: 0;
+				height: 3.5rem;
+				background: #aa9ef6;
+			}
+			.page-footer ul{
+				display: flex;
+				padding: 0;
+				margin: 0;
+			}
+			.page-footer li{
+				flex:1;
+				height: 3.5rem;
+				list-style: none;
+				text-align: center;
+				padding-top: 0.5rem;
+			}
+			.page-footer .tag-img{
+				background: url(icon_sj.png) no-repeat;
+				display: block;
+				background-size: 1.5rem;
+				width: 1.5rem;
+				height: 1.5rem;
+				margin: 0 auto 5px;
+			}
+			.page-footer .tag{
+				font-size: 0.8rem;
+				color: #838491;
+			}
+			.page-footer li:first-child .tag{
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="page-header">
+			<div class="page-back"></div>
+			<h4>标题</h4>
+		</header>
+		<section class="page-body">
+			
+		</section>
+		<nav class='page-footer'>
+			<ul>
+				<li class="flex1">
+					<span class="tag-img"></span>
+					<span class="tag">民宿客栈</span>
+				</li>
+				<li class="flex2">
+					<span class="tag-img"></span>
+					<span class="tag">发现</span>
+					
+				</li>
+				<li class="flex3">
+					<span class="tag-img"></span>
+					<span class="tag">特卖</span>
+				</li>
+			</ul>
+		</nav>
+	</body>
+</html>
