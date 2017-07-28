@@ -248,3 +248,54 @@ function functions(flag) {
 function parse2Int(num) {
     return parseInt(num,10);
 }
+=====================================================================================================
+// 18.题目描述
+// 判断 val1 和 val2 是否完全等同	
+function identity(val1, val2) {
+    return val1 === val2;
+}
+=====================================================================================================
+// 19.实现一个打点计时器，要求
+// 1、从 start 到 end（包含 start 和 end），每隔 100 毫秒 console.log 一个数字，每次数字增幅为 1
+// 2、返回的对象中需要包含一个 cancel 方法，用于停止定时操作
+// 3、第一个数需要立即输出	
+function count(start, end) {
+	console.log(start);
+    var cou = setInterval(function(){
+        if(start < end){
+	        console.log(++start);
+        }
+    },100);
+    return{
+        cancel : function(){
+        	clearInterval(cou);
+    	}    
+    }
+    
+}
+=====================================================================================================
+// 20.题目描述
+// 实现 fizzBuzz 函数，参数 num 与返回值的关系如下：
+// 1、如果 num 能同时被 3 和 5 整除，返回字符串 fizzbuzz
+// 2、如果 num 能被 3 整除，返回字符串 fizz
+// 3、如果 num 能被 5 整除，返回字符串 buzz
+// 4、如果参数为空或者不是 Number 类型，返回 false
+// 5、其余情况，返回参数 num
+function fizzBuzz(num) {
+    if(!!num && typeof(num) == "number"){
+        if(num%3 == 0 && num%5 == 0){
+            return 'fizzbuzz';
+        }else if(num % 3 == 0){
+            return 'fizz';
+        }else if(num % 5 == 0){
+            return 'buzz';
+        }else{
+            return num;
+        }    
+    }else{
+        return false;
+    }
+}
+// 21.题目描述
+// 将数组 arr 中的元素作为调用函数 fn 的参数
+=====================================================================================================
