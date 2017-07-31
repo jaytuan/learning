@@ -1,0 +1,19 @@
+1.angular的directive指令的link方法
+//link函数主要用于操作dom元素,给dom元素绑定事件和监听.  
+link:function(scope,element,attr,ctrl,linker){  
+    //scope:指令所在的作用域  
+    //element：指令元素的封装，可以调用angular封装的简装jq方法和属性  
+    //attr：指令元素的属性的集合  
+    //ctrl：用于调用其他指令的方法,指令之间的互相通信使用，需要配合require  
+    //linker:用于transClude里面嵌入的内容  
+} 
+// 比如 指令标签  
+<mylink myLoad="try()"></mylink>  
+  
+link:function(scope,element,attr){  
+    element.bind("mouseenter",function(){  
+        //attr.myload() 就是获取标签上的方法 注意这里需要小写，不能大写  
+        element.$apply(attr.myload()); //使用$apply运行作用域里面的try()方法  
+        scope.$apply("try()");//作用同上  
+    });  
+}  
