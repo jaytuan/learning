@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+	<head>
+		<title>幸运抽奖</title>
+	</head>
+	<body>
+		<div class="title">
+			抽奖环节
+		</div>
+		<div>
+			<ul id="luckyName"></ul>
+		</div>
+		<button id="startbtn">开始</button>
+		<button id="endbtn">停止</button>
+	</body>
+	<script type="text/javascript" src="https://file.40017.cn/tcweb/pc/public/js/common/jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		var allName = ['刘建团','党晓晓','韦安陵','徐飞','王德州','姜杰','刘军磊','张亚楠','王波','陈孝凯','栗晚秋','殷海洋','夏振飞','范启贤','隋富娜','徐蔚然','刘春蕊','王丹丹','刘欣睿','刘迎团','刘迎来','刘子涵','刘中杰','胡苏阳','房楚楚','张迪']; 
+		var needToShow = '';
+		var Show = function(num){
+			var str = '';
+			var log='';
+			allName.sort(function(){
+				return 0.5-Math.random();
+			});
+			for(var i = 0 ;i < num; i++){
+				str += '<li>' + allName[i] + '</li>';
+				log += allName[i]+'、';
+			}
+			needToShow = str;
+			$('#luckyName').html(str);
+		}
+		var roll;
+		var flag = true;
+		var start = function(){
+			flag = false;
+			roll = setInterval(function(){
+				Show(3);
+			},100);
+		}
+		var end = function(){
+			clearInterval(roll);
+			flag = true;
+			$('#luckyName').html(needToShow);
+		}
+		$("#startbtn").on('click',function(){
+			if(flag){
+				start();
+			}
+		})
+		$("#endbtn").on('click',function(){
+			end();
+		})
+	</script>
+	<style>
+		li{
+			list-style: none;
+		}
+	</style>
+</html>
