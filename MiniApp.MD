@@ -1,0 +1,12 @@
+#### 需求背景：小程序列表优化
+----
+##### 需求详情：列表页渲染的时候，改变其中某个数据，也需要整个list去setData，在数据量大的时候渲染时间长，卡顿。
+##### 解决思路：思考只改变了一个数据，那就只setData这一个变的数据就好了。
+##### 解决方法：发现setData方法的形参是一个对象，操作列表时改变数组中某个对象的值，操作的下标是一个变量，所以考虑使用[]对象的中括号取属性方法，然后再去setData。
+##### 效果：提高了列表的渲染速度，在数据量最多的上海南京车次列表，提高了至少一倍的渲染速度。
+###### 例子：param对象设置两个属性。backupTrains是需要渲染整个对象数组，opIndex 是被操作对象的数组下标，hasSelected为控制显隐的属性，hasChoose是已经选中的所有车次
+var param = {};<br />
+var keyStr = "backupTrains["+opIndex+"].hasSelected";<br />
+param[keyStr] = this.data.backupTrains[opIndex].hasSelected ;<br />
+param.hasChooseTrains = hasChoose;<br />
+this.setData(param);<br />
