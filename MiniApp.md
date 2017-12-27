@@ -14,3 +14,27 @@ this.setData(param);<br />
 #### 2.需求：在手机端添加常旅信息缺失。
 ##### 排查：bindchange只有在输入框失焦的时候才会触发，在手机端用户还在输入的时候点击完成操作，bindchange会在完成操作之后执行，而在开发者工具上，点击完成操作可以先执行bindchange再执行完成操作方法。
 ##### 总结：小程序输入框最好不要用bindchange，可以使用bindinput代替解决，而且测试的时候最好还是以真实手机环境为准。。
+
+#### 3.小程序wx.uploadFile    参考：http://bbs.csdn.net/topics/392047069
+wx.uploadFile({<br />
+               url:'https://dddddd', //指定服务器接口地址<br />
+               filePath:res.tempFilePaths[0],<br />
+               name:'image',<br />
+               header: { "Content-Type": "multipart/form-data" },<br />
+               //  formData: {<br />
+               //    filePath:res.tempFilePaths[0]<br />
+               //  }, // HTTP 请求中其他额外的 form data<br />
+               success: function(res){<br />
+                 var resData = res.data;<br />
+                  
+                 // success<br />
+               },<br />
+               complete: function() {<br />
+                 // complete<br />
+               }<br />
+             })<br />
+   后台接收代码，通过 HttpContext.Current.Request.Files[0] 接收<br />
+public string PostFile()<br />
+{<br />
+              HttpPostedFile file = HttpContext.Current.Request.Files[0];<br />
+}<br />
