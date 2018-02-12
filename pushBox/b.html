@@ -8,14 +8,6 @@
 </head>
 <body>
 <div id="container">
-    <div id="template-dom" class="{{m.className}}">
-        <div class="user-profile">
-            <div class="user-avatar">
-                <img src='{{user.avatar}}'>
-            </div>
-            {{m.user.name}}
-        </div>
-    </div>
     <div id="sokoban">
         <h3>Sokoban</h3>
     </div>
@@ -25,7 +17,7 @@
     <br>
     <div id="select">
     <span>Choose a level:
-    <select id="level" onchange="chooseLevel()">
+    <select id="level" onchange="changeLevel()">
         <option value="level1">level1</option>
         <option value="level2">level2</option>
     </select>
@@ -37,35 +29,4 @@
     </div>
 </div>
 </body>
-<script type="text/javascript">
-    var m = {
-      className: 'user',
-      user:{
-        name: 'wscn',
-        avatar:'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'
-      }
-    }
-
-    var render = function (dom, model) {
-      var reg = /{{([^{}]*)}}/g
-      var attrs = Array.prototype.slice.call(dom.attributes)
-      for (let attr of attrs) {
-        attr.value = attr.value.replace(reg, function (src, val) {
-          return new Function('return ' + val)()
-        })
-      }
-      var childs = Array.prototype.slice.call(dom.childNodes)
-      for (let child of childs) {
-        if (child.nodeType === 1) {
-          render(child, model)
-        } else if (child.nodeType === 3) {
-          child.nodeValue = child.nodeValue.replace(reg, function (src, val) {
-            return new Function('return ' + val)()
-          })
-        }
-      }
-    }
-    render(document.getElementById('template-dom'), m)
-</script>
-<script type="text/javascript" src="https://file.40017.cn/huochepiaotest/exercise/jquery-3.3.1.js"></script>
 </html>

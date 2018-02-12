@@ -49,10 +49,12 @@ var gameDefine= {
         y:50
     },
     match:0,
-    //上一个点如果是终点，记录坐标
+    //分别获取人、箱子、重点的坐标
     endPoints:getPointsLoc(4),
     boxPoints:getPointsLoc(2),
-    humanPoints:getPointsLoc(3)
+    humanPoints:getPointsLoc(3),
+    currentLevel:1,//当前关卡
+    totalLevel:2 //总关数，修改上面关卡对象的时候需改动这里
 };
 
 function createMap(){
@@ -134,19 +136,27 @@ function check(){
     } 
     setTimeout(function(){
         if(boxOnEnd == gameDefine.endPoints.length){
-            alert('恭喜过关！');
+            if(gameDefine.currentLevel >= gameDefine.totalLevel){
+            	 alert('恭喜您通关！');
+            }else{
+            	 alert('恭喜过关！开始下一关');
+            	 var selectDom = document.getElementById('level');
+            	 selectDom.value = 'level' + (gameDefine.currentLevel*1+1);
+    			 gameDefine.currentLevel = gameDefine.currentLevel*1+1;
+            	 changeLevel();
+            }
         }
     },100);
 }
-function chooseLevel(){
+function changeLevel(){
     var selectDom = document.getElementById('level');
-    var currentLevel = selectDom.value; 
-    map = deepCopy(level[currentLevel]);
+    gameDefine.currentLevel = selectDom.value.substr(5,1); 
+    map = deepCopy(level[selectDom.value]);
     createMap();
     selectDom.blur();
     gameDefine.endPoints = getPointsLoc(4);
-    gameDefine.boxPoints=getPointsLoc(2);
-    gameDefine.humanPoints=getPointsLoc(3);
+    gameDefine.boxPoints = getPointsLoc(2);
+    gameDefine.humanPoints = getPointsLoc(3);
 }
 function move(){
     createMap();
