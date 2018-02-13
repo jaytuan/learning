@@ -50,11 +50,11 @@ var gameDefine= {
     },
     match:0,
     //分别获取人、箱子、重点的坐标
-    endPoints:getPointsLoc(4),
-    boxPoints:getPointsLoc(2),
-    humanPoints:getPointsLoc(3),
-    currentLevel:1,//当前关卡
-    totalLevel:2 //总关数，修改上面关卡对象的时候需改动这里
+    endPoints: getPointsLoc(4),
+    boxPoints: getPointsLoc(2),
+    humanPoints: getPointsLoc(3),
+    currentLevel: 1,//当前关卡
+    totalLevel: getTotalLevel() //总关数，只执行一次
 };
 
 function createMap(){
@@ -315,6 +315,12 @@ function getPointsLoc(type){
     }
     return result;
 }
-
+function getTotalLevel(){
+	var count = 0;
+	for(var key in level){
+		count ++;
+	}
+	return count;
+}
 
 
