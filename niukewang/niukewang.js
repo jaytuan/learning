@@ -16,6 +16,18 @@ function indexOf(arr, item) {
         return -1;
     }
 }
+function indexOf(arr, item) {
+    if(Array.prototype.indexOf){
+        return arr.indexOf(item);
+    }else{
+        for(var i = 0;i < arr.length;i++){
+            if(arr[i] == item){
+                return i;
+            }
+        }
+    }
+    return -1;
+}
 =====================================================================================================
 // 2.题目描述
 // 计算给定数组 arr 中所有元素的总和
@@ -28,6 +40,11 @@ function sum(arr) {
     }
     return sumCount;
 }
+function sum(arr) {
+    return arr.reduce(function(item,it){
+        return item + it
+    });
+}
 =====================================================================================================
 // 3.题目描述
 // 移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组
@@ -39,6 +56,13 @@ function remove(arr, item) {
         }
     }
     return newArr;
+}
+
+function remove(arr, item) {
+    var result = arr.filter(function(it,index){
+        return it != item
+    })
+    return result;
 }
 =====================================================================================================
 // 4.题目描述
@@ -56,8 +80,7 @@ function removeWithoutCopy(arr, item) {
 // 5.题目描述
 // 在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组
 function append(arr, item) {
-	var a = arr.concat(item);
-    return a;
+	return arr.concat(item);
 }
 =====================================================================================================
 // 6.题目描述
@@ -123,6 +146,12 @@ function concat(arr1, arr2) {
 function insert(arr, item, index) {
 	return arr.slice(0,index).concat(item,arr.slice(index));
 }
+//利用splice添加
+function insert(arr, item, index) {
+    var array = arr.slice(0);
+    array.splice(index,0,item);
+    return array;
+}
 =====================================================================================================
 // 11.题目描述
 // 统计数组 arr 中值等于 item 的元素出现的次数
@@ -154,7 +183,7 @@ function duplicates(arr) {
     return repeatElem;
 }
 
-//改进   使用前从前往后indexOf和从后往前lastIndexOf函数
+//改进   使用从前往后indexOf和从后往前lastIndexOf函数
 function duplicates(arr) {
     var repeatElem = [];
     for(var i = 0; i < arr.length; i++){
@@ -299,3 +328,23 @@ function fizzBuzz(num) {
 // 21.题目描述
 // 将数组 arr 中的元素作为调用函数 fn 的参数
 =====================================================================================================
+function argsAsArray(fn, arr) {
+    return fn.apply(this,arr)
+}
+// 22.题目描述
+// 将函数 fn 的执行上下文改为 obj 对象
+=====================================================================================================
+function speak(fn, obj) {
+    return fn.apply(obj)
+}
+// 23.题目描述
+// 实现函数 functionFunction，调用之后满足如下条件：
+// 1、返回值为一个函数 f
+// 2、调用返回的函数 f，返回值为按照调用顺序的参数拼接，拼接字符为英文逗号加一个空格，即 ', '
+// 3、所有函数的参数数量为 1，且均为 String 类型
+=====================================================================================================
+function functionFunction(str) {
+    return function(str2){
+        return str + ', ' + str2
+    }
+}
