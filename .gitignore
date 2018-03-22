@@ -1,0 +1,7 @@
+/data
+.idea
+node_modules
+build
+wechat-app-tongcheng.sublime*
+project.config.json
+.DS_Store
