@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        margin: 30px auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="appp" class="container">
+      用户名：<input v-model="userName"/>
+      输入值：<span v-text="userName"></span>
+    </div>
+  </body>
+  <script>
+    (function(){
+      var events = ['click', 'change', 'keyup']
+      var directives = {
+      }
+      // 利用 Object.defineProperty 把initData里属性进行 getter和setter
+      function convertProperty (that, initData, watcher) {
+        for (let prop in initData) {
+          watcher[prop] = {
+            nodes: [], // 存放绑定该变量的所有nodes
+            value: null
+          }
+          Object.defineProperty()
+        }
+      }
+      window.Vue = function (opts) {
+        var watcher = {}
+        this.$el = document.querySelector(opts.el)
+        convertProperty(this, opts.data, watcher)
+      }
+    })()
+    var vm = new Vue({
+      el: '#appp',
+      data: {
+        userName: '',
+        isShowPop: false
+      },
+      methods: {
+
+      },
+      created () {
+
+      },
+      mounted () {
+
+      }
+    })
+  </script>
+</html>
